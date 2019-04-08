@@ -179,7 +179,7 @@
                     android:layout_marginRight="10dp">
 
                     <TextView
-                        android:layout_width="160dp"
+                        android:layout_width="140dp"
                         android:layout_height="120dp"
                         android:background="@color/colorPrimaryDark"
                         android:gravity="center"

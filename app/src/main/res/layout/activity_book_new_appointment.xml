@@ -1,170 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".Views.Donors.BookNewAppointmentActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:navigationIcon="@drawable/ic_arrow_back_black_24dp"
-        android:background="@color/colorPrimaryDark"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"/>
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryDark"
+            android:navigationIcon="@drawable/ic_arrow_back_black_24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="حجز موعد جديد"
+                android:textColor="#797979"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/blooddrop" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edt_date"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:background="#E0DEDE"
+                android:gravity="center"
+                android:hint="اختر تاريخ ....."
+                android:maxLines="1"
+                android:padding="15dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:text="تاريخ التبرع  :"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/spi_area"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:textColor="#8a4e8e"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:text="المنطقه   "
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/spi_hospital"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:textColor="#8a4e8e"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:text="المستشفي  "
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/spi_shift"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:textColor="#8a4e8e"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:text="الفتره   "
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/done"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="حجز موعد جديد"
-            android:textColor="#797979"
+            android:layout_marginTop="50dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="حفظ"
+            android:textColor="#fff"
             android:textSize="20dp"
             android:textStyle="bold" />
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/blooddrop" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            android:background="#D5D5D5">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:text="تنبيه هام"
+                android:paddingTop="5dp"
+                android:textStyle="bold"
+                android:layout_gravity="right"
+                android:textColor="#0F0F0F"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:paddingBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:text="يتم أخذ 400 إلى 450 مليلترا، وهو ما يمثل حوالي 1/12 من حجم الدم الموجود داخل جسم كل إنسان، والذي يتراوح بين 5 إلى 6 لترات. يمكن معاودة التبرع بالدم كل 56 يوما بينما تشترط بعض بنوك الدم مدة 3 شهور على الأقل، يجب أن يكون المتبرع في وضع صحي لائق ليقبل تبرعه دون التأثير سلبا على صحته   "
+                android:textColor="#636363"
+                android:textSize="15dp" />
+
+
+        </LinearLayout>
 
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:gravity="right"
-        android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/edt_date"
-            android:layout_width="140dp"
-            android:gravity="center"
-            android:layout_height="wrap_content"
-            android:background="#E0DEDE"
-            android:hint="اختر تاريخ ....."
-            android:padding="15dp"
-            android:maxLines="1"
-            android:textColor="@color/colorPrimaryDark"
-            android:textColorHint="@color/colorPrimaryDark"
-            android:textSize="15dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:text="تاريخ التبرع  :"
-            android:textColor="#000"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="right"
-        android:orientation="horizontal">
-
-        <Spinner
-            android:id="@+id/spi_area"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-             android:textColor="#8a4e8e"
-            android:textSize="15dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:text="المنطقه   "
-            android:textColor="#000"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
- <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="right"
-        android:orientation="horizontal">
-
-        <Spinner
-            android:id="@+id/spi_hospital"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-             android:textColor="#8a4e8e"
-            android:textSize="15dp"
-            android:textStyle="bold" />
-
-     <TextView
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_marginRight="20dp"
-         android:text="المستشفي  "
-         android:textColor="#000"
-         android:textSize="20dp"
-         android:textStyle="bold" />
-
-    </LinearLayout>
-
- <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="right"
-        android:orientation="horizontal">
-
-        <Spinner
-            android:id="@+id/spi_shift"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-             android:textColor="#8a4e8e"
-            android:textSize="15dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:text="الفتره   "
-            android:textColor="#000"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-
-    <Button
-        android:id="@+id/done"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-         android:background="@color/colorPrimaryDark"
-        android:text="حفظ"
-        android:textColor="#fff"
-        android:textSize="20dp"
-        android:textStyle="bold" />
-
-
-
-
-
-</LinearLayout>
+</ScrollView>

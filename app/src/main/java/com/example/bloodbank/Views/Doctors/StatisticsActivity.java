@@ -15,6 +15,7 @@ import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -175,17 +176,25 @@ public class StatisticsActivity extends AppCompatActivity {
 
         entries.add(new BarEntry(1, male_n)); //male
         entries.add(new BarEntry(2, female_n));  //female
-        entries.add(new BarEntry(3, success));  //female
-        entries.add(new BarEntry(4, bad));  //female
-        entries.add(new BarEntry(5, today_donations));  //female
+        entries.add(new BarEntry(3, success));  //
+        entries.add(new BarEntry(4, bad));  //
+        entries.add(new BarEntry(5, today_donations));  //
 
-        BarDataSet set = new BarDataSet(entries, "Dates Set");
-        set.setColors(ColorTemplate.MATERIAL_COLORS);
-        set.setDrawValues(true);
+        BarDataSet set = new BarDataSet(entries, "Data Sets");
+
+        ArrayList num = new ArrayList();
+
+        num.add("1");
+        num.add("2");
+        num.add("3");
+        num.add("4");
+        num.add("5");
 
 
         BarData data = new BarData(set);
 
+        set.setColors(ColorTemplate.COLORFUL_COLORS);
+        set.setDrawValues(true);
 
         barChart.setData(data);
         barChart.invalidate();

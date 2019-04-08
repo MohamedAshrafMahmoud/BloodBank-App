@@ -85,6 +85,12 @@ public class DoctorApprovalAdapter extends RecyclerView.Adapter<DoctorApprovalAd
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int i, long l) {
                 String item = parent.getItemAtPosition(i).toString();
+
+                if (item.equals("نجح الطلب")) {
+                    viewHolder.edt_reason.setVisibility(View.GONE);
+                } else {
+                    viewHolder.edt_reason.setVisibility(View.VISIBLE);
+                }
             }
 
             @Override
@@ -97,7 +103,7 @@ public class DoctorApprovalAdapter extends RecyclerView.Adapter<DoctorApprovalAd
             @Override
             public void onClick(View view) {
 
-                if (viewHolder.edt_reason.getText().toString().length() == 0) {
+                if (viewHolder.edt_reason.getText().toString().length() == 0 &&viewHolder.spiconditio.getSelectedItem().toString().equals("رفض الطلب")&&viewHolder.spiconditio.getSelectedItem().toString().equals("تاجيل الطلب")) {
                     viewHolder.edt_reason.setError("السبب مطلوب");
                     viewHolder.edt_reason.requestFocus();
 

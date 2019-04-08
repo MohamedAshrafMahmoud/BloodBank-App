@@ -157,9 +157,39 @@ public class BookNewAppointmentActivity extends AppCompatActivity {
             Toast.makeText(BookNewAppointmentActivity.this, "الفتره مطلوبه", Toast.LENGTH_SHORT).show();
             spishift.requestFocus();
 
-        } else if (check_empty_date() == true) {
-
-
+//        } else if (check_empty_date()) {
+//
+//
+//            appointement = new Appointement(
+//                    Common.currentUser.getName(),
+//                    edtdate.getText().toString(),
+//                    spiarea.getSelectedItem().toString(),
+//                    spihospital.getSelectedItem().toString(),
+//                    spishift.getSelectedItem().toString(),
+//                    "بانتظار الطبيب...",
+//                    "بانتظار الطبيب...",
+//                    false
+//            );
+//
+//            if (flag == true) {
+//                appointement_databaseReference.push().setValue(appointement);
+//                startActivity(new Intent(BookNewAppointmentActivity.this, DonorsActivity.class));
+//                Toast.makeText(this, "تم بنجاح", Toast.LENGTH_SHORT).show();
+//
+//            } else {
+//                // if flag false so changed in data and upload new data
+//                appointement_databaseReference.child(Id).setValue(appointement);
+//                startActivity(new Intent(BookNewAppointmentActivity.this, DonorsActivity.class));
+//                Toast.makeText(this, "تم بنجاح", Toast.LENGTH_SHORT).show();
+//            }
+//        }
+//        else {
+//
+//            if (check_date(edtdate.getText().toString()) == false) {
+//
+//                Toast.makeText(this, "لا يمكنك التبرع الا كل 3 اشهر .. بالرجاء اختيار معاد اخر", Toast.LENGTH_LONG).show();
+//
+        } else {
             appointement = new Appointement(
                     Common.currentUser.getName(),
                     edtdate.getText().toString(),
@@ -178,43 +208,15 @@ public class BookNewAppointmentActivity extends AppCompatActivity {
 
             } else {
                 // if flag false so changed in data and upload new data
-                appointement_databaseReference.child(Id).setValue(appointement);
+                appointement_databaseReference.child(id).setValue(appointement);
                 startActivity(new Intent(BookNewAppointmentActivity.this, DonorsActivity.class));
                 Toast.makeText(this, "تم بنجاح", Toast.LENGTH_SHORT).show();
             }
-        } else {
-
-            if (check_date(edtdate.getText().toString()) == false) {
-
-                Toast.makeText(this, "لا يمكنك التبرع الا كل 3 اشهر .. بالرجاء اختيار معاد اخر", Toast.LENGTH_LONG).show();
-
-            } else {
-                appointement = new Appointement(
-                        Common.currentUser.getName(),
-                        edtdate.getText().toString(),
-                        spiarea.getSelectedItem().toString(),
-                        spihospital.getSelectedItem().toString(),
-                        spishift.getSelectedItem().toString(),
-                        "بانتظار الطبيب...",
-                        "بانتظار الطبيب...",
-                        false
-                );
-
-                if (flag == true) {
-                    appointement_databaseReference.push().setValue(appointement);
-                    startActivity(new Intent(BookNewAppointmentActivity.this, DonorsActivity.class));
-                    Toast.makeText(this, "تم بنجاح", Toast.LENGTH_SHORT).show();
-
-                } else {
-                    // if flag false so changed in data and upload new data
-                    appointement_databaseReference.child(id).setValue(appointement);
-                    startActivity(new Intent(BookNewAppointmentActivity.this, DonorsActivity.class));
-                    Toast.makeText(this, "تم بنجاح", Toast.LENGTH_SHORT).show();
-                }
-            }
-
         }
+
     }
+
+//}
 
 
     ////////////////////////////////////
@@ -416,7 +418,7 @@ public class BookNewAppointmentActivity extends AppCompatActivity {
     private void load(String id) {
         flag = false;
 
-        ProgressDialog mProgressDialog = new ProgressDialog(this);
+        final ProgressDialog mProgressDialog = new ProgressDialog(this);
         mProgressDialog.setMessage("Work ...");
         mProgressDialog.show();
         appointement_databaseReference.child(id).addValueEventListener(new ValueEventListener() {
@@ -439,6 +441,8 @@ public class BookNewAppointmentActivity extends AppCompatActivity {
 
                 intentflag = false;
 
+                mProgressDialog.dismiss();
+
             }
 
             @Override
@@ -446,13 +450,16 @@ public class BookNewAppointmentActivity extends AppCompatActivity {
 
             }
         });
-        mProgressDialog.dismiss();
 
 
     }
 /////////////////////////////////////////////////////////////////////////////
 
     public boolean check_date(final String edt_date) {
+
+        final ProgressDialog mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setMessage("Work ...");
+        mProgressDialog.show();
 
         appointement_databaseReference.orderByChild("name").equalTo(Common.currentUser.getName()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -509,6 +516,8 @@ public class BookNewAppointmentActivity extends AppCompatActivity {
                     }
 
                 }
+
+                mProgressDialog.dismiss();
             }
 
 
@@ -534,9 +543,9 @@ public class BookNewAppointmentActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot snapshot) {
 
                 if (!snapshot.exists()) {
-                     flag_empty = true;
+                    flag_empty = true;
                 } else {
-                     flag_empty = false;
+                    flag_empty = false;
                 }
 
                 Dialog.dismiss();
